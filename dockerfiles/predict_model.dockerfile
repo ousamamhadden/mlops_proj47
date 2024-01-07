@@ -5,13 +5,16 @@ RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
+#We install requirements before any copying for better caching 
 COPY requirements.txt requirements.txt
-COPY pyproject.toml pyproject.toml
-COPY src/ src/
-COPY data/ data/
-
 WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
-RUN pip install . --no-deps --no-cache-dir
+
+COPY src/ src/
+COPY data/ data/
+COPY config/ config/ 
+COPY models/ models/ #We could mount this instead.
+COPY reports/ reports/
 
 ENTRYPOINT ["python", "-u", "src/predict_model.py"]
+#docker run -e WANDB_API_KEY=USEYOURKEYHERE predict:latest models/trained_model.pt data/processed/test_set.pt

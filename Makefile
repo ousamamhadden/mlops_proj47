@@ -40,6 +40,15 @@ clean:
 data:
 	python $(PROJECT_NAME)/data/make_dataset.py
 
+## Make train model
+.PHONY: train
+train: requirements
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/train_model.py
+
+## Use model to predict
+.PHONY: predict
+predict: requirements
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/predict_model.py $(model) $(data)
 #################################################################################
 # Documentation RULES                                                           #
 #################################################################################
