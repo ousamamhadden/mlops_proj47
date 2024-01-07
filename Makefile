@@ -49,6 +49,8 @@ train: requirements
 .PHONY: predict
 predict: requirements
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/predict_model.py $(model) $(data)
+#Example: make predict  model=models/trained_model.pt data=data/processed/test_set.pt
+
 #################################################################################
 # Documentation RULES                                                           #
 #################################################################################
