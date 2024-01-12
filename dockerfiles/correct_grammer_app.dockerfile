@@ -12,10 +12,8 @@ WORKDIR /
 RUN --mount=type=cache,target=~/pip/.cache pip install -r requirements.txt --no-cache-dir
 
 COPY pyproject.toml pyproject.toml
-COPY src/ src/
-COPY data/ data/
+COPY src/correct_grammer_app.py src/correct_grammer_app.py
 COPY models/ models/
-COPY reports/ reports/
 
 WORKDIR /src
 CMD exec uvicorn correct_grammer_app:app --port $PORT --host 0.0.0.0 --workers 1
