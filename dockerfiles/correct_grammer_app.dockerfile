@@ -9,7 +9,7 @@ RUN apt update && \
 
 COPY requirements.txt requirements.txt
 WORKDIR /
-RUN --mount=type=cache,target=~/pip/.cache pip install -r requirements.txt --no-cache-dir
+RUN pip install -r requirements.txt --no-cache-dir
 
 COPY pyproject.toml pyproject.toml
 COPY src/correct_grammer_app.py src/correct_grammer_app.py
