@@ -2,18 +2,18 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', 'dockerfiles/correct_grammer_app.dockerfile', '-t', 'gcr.io/durable-stack-410709/cgapp:latest', '.'] 
+  args: ['build', '-f', 'dockerfiles/gramai_app.dockerfile', '-t', 'gcr.io/durable-stack-410709/gramai_app:latest', '.'] 
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/durable-stack-410709/cgapp:latest']
+  args: ['push', 'gcr.io/durable-stack-410709/gramai_app:latest']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args:
   - 'run'
   - 'deploy'
-  - 'cgapp'
+  - 'gramai_app'
   - '--image'
-  - 'gcr.io/durable-stack-410709/cgapp:latest'
+  - 'gcr.io/durable-stack-410709/gramai_app:latest'
   - '--region'
   - 'europe-west1'
