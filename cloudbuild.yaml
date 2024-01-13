@@ -12,7 +12,7 @@ steps:
   args:
   - 'run'
   - 'deploy'
-  - 'gramai_app'
+  - 'gramai-app'
   - '--image'
   - 'gcr.io/durable-stack-410709/gramai_app:latest'
   - '--region'
