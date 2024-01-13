@@ -1,0 +1,19 @@
+# Cloud Build steps
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-f', 'dockerfiles/correct_grammer_app.dockerfile', '-t', 'gcr.io/durable-stack-410709/cgapp:latest', '.'] 
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/durable-stack-410709/cgapp:latest']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'cgapp'
+  - '--image'
+  - 'gcr.io/durable-stack-410709/cgapp:latest'
+  - '--region'
+  - 'europe-west1'
