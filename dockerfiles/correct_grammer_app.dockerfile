@@ -13,6 +13,7 @@ RUN pip install -r requirements.txt --no-cache-dir
 
 COPY pyproject.toml pyproject.toml
 COPY src/correct_grammer_app.py src/correct_grammer_app.py
+COPY src/config.yaml src/config.yaml
 COPY models/ models/
 
 WORKDIR /src
