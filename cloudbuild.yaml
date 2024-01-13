@@ -19,4 +19,11 @@ steps:
   - 'europe-west1'
   - '--project'
   - 'durable-stack-410709'
-  - && gcloud run services update-traffic gramai-app --to-latest
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'services'
+  - 'update-traffic'
+  - 'gramai-app'
+  - '--to-latest'
