@@ -28,14 +28,17 @@ def train(config):
     model.train('data/processed/train.csv', args=args)
     output_text_1 = model.generate_text(input_text_1, args=beam_settings)
     print(output_text_1.text)
-    model.save("model/")
+    #model.save("model/")
     res = model.eval('data/processed/train.csv')
-    wandb.log({"ValidationLoss": res.loss})
+    return res.loss
     
 
 
 def main():
-    train(wandb.config)
+    wandb.init(project="mlops-47")
+    score = train(wandb.config)
+    wandb.log({"ValidationLoss": score})
+
 
 
 if __name__=='__main__':
