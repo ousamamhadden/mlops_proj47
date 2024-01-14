@@ -7,23 +7,23 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/durable-stack-410709/gramai_app:latest']
 # Deploy container image to Cloud Run
-# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-#   entrypoint: gcloud
-#   args:
-#   - 'run'
-#   - 'deploy'
-#   - 'gramai-app'
-#   - '--image'
-#   - 'gcr.io/durable-stack-410709/gramai_app:latest'
-#   - '--region'
-#   - 'europe-west1'
-#   - '--project'
-#   - 'durable-stack-410709'
-# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-#   entrypoint: gcloud
-#   args:
-#   - 'run'
-#   - 'services'
-#   - 'update-traffic'
-#   - 'gramai-app'
-#   - '--to-latest'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'gramai-app'
+  - '--image'
+  - 'gcr.io/durable-stack-410709/gramai_app:latest'
+  - '--region'
+  - 'europe-west1'
+  - '--project'
+  - 'durable-stack-410709'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'services'
+  - 'update-traffic'
+  - 'gramai-app'
+  - '--to-latest'
