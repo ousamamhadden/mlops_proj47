@@ -1,29 +1,5 @@
-# Cloud Build steps
 steps:
-# Build the container image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', 'dockerfiles/gramai_app.dockerfile', '.', '-t', 'gcr.io/durable-stack-410709/gramai_app:latest'] 
-# Push the container image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/durable-stack-410709/gramai_app:latest']
-# Deploy container image to Cloud Run
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args:
-  - 'run'
-  - 'deploy'
-  - 'gramai-app'
-  - '--image'
-  - 'gcr.io/durable-stack-410709/gramai_app:latest'
-  - '--allow-unauthenticated'
-  - '--port'
-  - '8080'
-  - '--memory'
-  - '4Gi'
-  - '--max-instances'
-  - '10'
-  - '--cpu-boost'
-  - '--region'
-  - 'europe-west1'
-  - '--project'
-  - 'durable-stack-410709'
+    - name: 'gcr.io/cloud-builders/docker'
+        args: ['build', '-t', 'gcr.io/macro-context-410815/trainingimage', '.']
+    - name: 'gcr.io/cloud-builders/docker'
+        args: ['push', 'gcr.io/macro-context-410815/trainingimage']
