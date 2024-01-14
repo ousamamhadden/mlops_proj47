@@ -5,3 +5,6 @@ workerPoolSpecs:
     replicaCount: 1
     containerSpec:
         imageUri: gcr.io/macro-context-410815/trainingimage
+        env:
+            - name: "WANDB_API_KEY"
+              value: d2b549d474a4c758fdbf8078476271633cc6eb95
