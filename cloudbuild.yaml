@@ -1,5 +1,5 @@
 steps:
     - name: 'gcr.io/cloud-builders/docker'
-        args: ['build', '-t', 'gcr.io/macro-context-410815/trainingimage', '.']
+        args: ['build', '-f', 'dockerfiles/train_model.dockerfile', '.', '-t', 'gcr.io/macro-context-410815/trainingimage'] 
     - name: 'gcr.io/cloud-builders/docker'
         args: ['push', 'gcr.io/macro-context-410815/trainingimage']
