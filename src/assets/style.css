@@ -1,0 +1,57 @@
+/* Define the body style */
+body {
+    background-color: rgba(0, 0, 0, 0.1); /* Background color */
+    font-family: Arial, sans-serif; /* Arial font */
+}
+
+/* Define the header style */
+h1 {
+    color: #ffffff; /* Dark gray text */
+    text-align: center; /* Centered text */
+    margin-top: 20px; /* Top margin */
+    margin-bottom: 20px; /* Bottom margin */
+    background: linear-gradient(to right, cyan, blue, indigo, violet);
+}
+
+/* Define the input style */
+#query-box {
+    border: 1px solid #cccccc; /* Gray border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    height: 200px; /* Height */
+    opacity: 0.7; /* Opacity */
+    outline: none; /* Remove outline */
+}
+
+/* Define the output style */
+#output {
+    color: #ffffff; /* White text */
+    background-color: #888888; /* Dark gray background */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    height: 200px; /* Height */
+    opacity: 0.7; /* Opacity */
+}
+
+/* Add a fancy logo image to the top left corner */
+#logo {
+    position: relative; /* Absolute position */
+    top: 20px; /* Top offset */
+    left: 50%; /* Left offset */
+    width:69px; /* Width */
+    height: 100px; /* Height */
+    transform: translateX(-50%); /* Center the image horizontally */
+    background-size: cover; /* Cover the element */
+}
+
+#background {
+    position: fixed; /* Fixed position */
+    top: 117px; /* Top offset */
+    left: 75%; /* Left offset */
+    width: 500px; /* Adjust the width as you like */
+    height: 500px; /* Adjust the height as you like */
+    transform: translateX(-50%); /* Center the image horizontally */
+    z-index: -1; /* Negative z-index */
+    background-size: cover; /* Cover the element */
+    filter: brightness(100%); /* Apply blur and brightness */
+}
