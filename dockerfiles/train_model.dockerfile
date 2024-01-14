@@ -13,8 +13,6 @@ RUN pip install -r requirements.txt --no-cache-dir
 COPY pyproject.toml pyproject.toml
 COPY src/ src/
 COPY data/ data/
-COPY config/ config/
-COPY reports/ reports/ #We could mount reports instead
 
 ENTRYPOINT ["python", "-u", "src/train_model.py"]
 #docker run -e WANDB_API_KEY=INSERTKEYHERE -v $(pwd)/models:/models trainer:latest
